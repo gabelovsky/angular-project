@@ -1,0 +1,7 @@
+<app-weather-input></app-weather-input>
+<div class="button-container">
+  <button (click)="loadWeatherData()">Create Briefing</button>
+</div>
+<app-weather-table
+  [weatherApiResponse]="weatherApiResponse"
+></app-weather-table>

@@ -1,0 +1,6 @@
+.button-container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: calc(100% - 6px);
+  padding: 5px 0 10px 0;
+}

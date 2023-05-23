@@ -1,0 +1,25 @@
+<div *ngIf="weatherApiResponse">
+  <div *ngIf="errorMessage" class="error-text">Error: {{ errorMessage }}</div>
+  <div *ngIf="!errorMessage">
+    <table>
+      <ng-container *ngFor="let station of weatherTableData | keyvalue">
+        <tr class="station-row">
+          <td>
+            {{ station.key }}
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr *ngFor="let reportRow of station.value">
+          <td>
+            {{ reportRow.reportType }}
+          </td>
+          <td>
+            {{ reportRow.formatedTime }}
+          </td>
+          <td [innerHTML]="reportRow.reportText"></td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+</div>

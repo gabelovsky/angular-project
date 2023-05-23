@@ -1,0 +1,22 @@
+:host ::ng-deep .red-text {
+  color: red;
+}
+
+:host ::ng-deep .blue-text {
+  color: blue;
+}
+
+td,
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.station-row {
+  background-color: #bababa;
+  font-weight: 600;
+}
+
+.error-text {
+  color: #a6332b;
+}

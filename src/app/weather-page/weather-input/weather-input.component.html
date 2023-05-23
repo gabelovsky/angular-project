@@ -1,0 +1,68 @@
+<div [formGroup]="weatherInputForm.form">
+  <div class="container-box">
+    <div class="message-title">Message types:</div>
+    <div class="checkbox" *ngFor="let messageType of MessageTypes | keyvalue">
+      <label>
+        <input
+          type="checkbox"
+          [formControl]="weatherInputForm.getCheckboxControl(messageType.key)"
+        />
+        {{ messageType.key }}
+      </label>
+    </div>
+  </div>
+  <div
+    class="error-text"
+    *ngIf="
+      weatherInputForm.getCheckboxControl().touched &&
+      weatherInputForm.getCheckboxControl().invalid
+    "
+  >
+    At least one message type must be selected
+  </div>
+  <div class="container-box">
+    <label class="input-label">
+      <div class="message-title">Airports:</div>
+      <input
+        [formControl]="weatherInputForm.getInputFieldControl('airportInput')"
+      />
+    </label>
+  </div>
+  <div
+    class="error-text"
+    *ngIf="
+      weatherInputForm.getInputFieldControl('airportInput').touched &&
+      weatherInputForm.getInputFieldControl('airportInput')?.errors
+        ?.airportFormatError
+    "
+  >
+    Incorrect airport code format
+  </div>
+  <div class="container-box">
+    <label class="input-label">
+      <div class="message-title">Countries:</div>
+      <input
+        [formControl]="weatherInputForm.getInputFieldControl('countryInput')"
+      />
+    </label>
+  </div>
+  <div
+    class="error-text"
+    *ngIf="
+      weatherInputForm.getInputFieldControl('countryInput').touched &&
+      weatherInputForm.getInputFieldControl('countryInput')?.errors
+        ?.countryFormatError
+    "
+  >
+    Incorrect country WHO code format
+  </div>
+  <div
+    class="error-text"
+    *ngIf="
+      weatherInputForm.getInputFieldControl().touched &&
+      weatherInputForm.getInputFieldControl().invalid
+    "
+  >
+    At least one country or airport must be entered
+  </div>
+</div>
